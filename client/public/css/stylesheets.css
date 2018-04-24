@@ -1,0 +1,39 @@
+body {
+  width: 400px;
+  margin: 0 auto;
+}
+
+h1 {
+  padding: 12px;
+}
+
+.button-add {
+  width: 100%;
+}
+
+.is-success {
+  margin-right: 10px;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+ul {
+  margin-top: 10px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+.title-todo {
+  font-size: 16px;
+}
+
+textarea {
+  font-size: 16px;
+  padding: 6px;
+  width: 100%;
+  color: #4a4a4a;
+}
