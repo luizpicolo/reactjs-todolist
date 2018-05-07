@@ -32,7 +32,7 @@ app.post('/todos', (req, res) => {
 app.put('/todos', (req, res) => {
   Todo.findByIdAndUpdate(
     req.body.todo.id,
-    { $set: { title: req.body.todo.title }}, { new: true }, function(err, todo){
+    { $set: req.body.todo.attributes }, { new: true }, function(err, todo){
       if (!err) {
         res.send(todo)
       } else {
