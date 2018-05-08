@@ -3,7 +3,10 @@ import React from 'react';
 export default class Todo extends React.Component {
   constructor(){
     super();
-    this.state = {displayTitle: true};
+    this.state = {
+      displayTitle: true,
+      status: false
+    };
   }
 
   setDisplayTitle(){
@@ -13,15 +16,25 @@ export default class Todo extends React.Component {
   handleKeyPress(event) {
     if (event.key == 'Enter') {
       this.setState({displayTitle: true});
-      this.props.update(event.target.id, event.target.value)
+      this.props.update(event.target.id, { title: event.target.value })
     }
+  }
+
+  todoComplete(status){
+    return status ? 'title-todo-complete' : 'title-todo'
+  }
+
+  changeStatus(props){
+    var status = !props.status
+    this.setState({status: status});
+    this.props.update(props.id, { status: status })
   }
 
   render(){
     return(
       <li>
         {this.state.displayTitle ? (
-          <div className="title-todo" onDoubleClick={this.setDisplayTitle.bind(this)}>
+          <div className={this.todoComplete(this.props.status)} onDoubleClick={this.setDisplayTitle.bind(this)}>
             { this.props.title }
           </div>
         ) : (
@@ -35,8 +48,8 @@ export default class Todo extends React.Component {
         <div className="has-text-right actions">
           <button
             className='button is-success is-small'
-            onClick={this.props.destroy.bind(this)}>
-            Completa
+            onClick={this.changeStatus.bind(this, this.props)}>
+            {this.props.status ? 'Incompleta' : 'Completa'}
           </button>
           <button
             className='button is-danger is-small'

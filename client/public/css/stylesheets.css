@@ -31,6 +31,13 @@ li {
   font-size: 16px;
 }
 
+.title-todo-complete {
+  font-size: 16px;
+  text-decoration: line-through;
+  color: #CCC;
+}
+
+
 textarea {
   font-size: 16px;
   padding: 6px;

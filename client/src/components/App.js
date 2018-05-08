@@ -27,7 +27,8 @@ class App extends React.Component {
       headers: Config.headers,
       body: JSON.stringify({
         todo: {
-          title: "Add new Title"
+          title: "Clique duas vezes para alterar a tarefa",
+          status: false
         }
       })
     }).then(res => res.json())
@@ -41,14 +42,14 @@ class App extends React.Component {
       )
   }
 
-  updateTodo(id, newtitle){
+  updateTodo(id, attr){
     fetch(Config.urlTOServer, {
       method: 'PUT',
       headers: Config.headers,
       body: JSON.stringify({
         todo: {
           id: id,
-          title: newtitle
+          attributes: attr
         }
       })
     }).then(res => res.json())
@@ -113,6 +114,7 @@ class App extends React.Component {
               destroy={this.destroyTodo.bind(this, todo)}
               update={this.updateTodo.bind(this)}
               title={todo.title}
+              status={todo.status}
               key={index}
               id={todo._id}/>
           ))}
