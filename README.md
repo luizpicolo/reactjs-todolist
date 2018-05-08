@@ -4,7 +4,7 @@ App criado com ReactJS, NodeJS e MongoDB para o gerenciamento de lista de tarefa
 
 # Screen
 
-![todolist](https://raw.githubusercontent.com/luizpicolo/reactjs-todolist/master/images/screen.png)
+![todolist](https://raw.githubusercontent.com/luizpicolo/reactjs-todolist/master/images/animated-2.gif)
 
 # Executando a aplicação
 
